@@ -5,4 +5,9 @@ from django.http import HttpResponse
 
 
 def book(request):
+    print(request)
     return HttpResponse('图书')
+
+
+def book_list(request):
+    return HttpResponse('book列表')
