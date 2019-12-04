@@ -13,8 +13,11 @@
 
     {% for p in a %}
     <p>{{p.username}} {{forloop}}</p>
-    {% empty %}没有找到 {% endfor %} {% for p in a %}
-    <p>{{p}} {{forloop.counter}}</p>
     {% empty %}没有找到 {% endfor %}
+    <div>
+      {% for p in a reversed %}
+      <p>{{p.username}} {{forloop.counter}}</p>
+      {% empty %}没有找到 {% endfor %}
+    </div>
   </body>
 </html>
