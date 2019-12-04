@@ -1,4 +1,4 @@
-"""fp URL Configuration
+"""c03urlnamedemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,24 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.http import HttpResponse
-from django.urls import converters
-
-from book.views import *
-from movie.views import movie
-
-
-def index(request):
-    return HttpResponse('首页')
-
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('movie', movie),
-    path('book/', include('book.urls')),
-    path('book', book),
-    path('book/<path:book_id>', book1),
-    path('book2', book2)
 ]
