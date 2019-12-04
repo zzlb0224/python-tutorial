@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse('前台首页')
+    username = request.GET.get('username')
+    if(username):
+        return HttpResponse('前台首页')
+    else:
+        return redirect('/login/')
 
 
 def login(request):
