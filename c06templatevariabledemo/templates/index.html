@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    {{username}} {{p.username}} {{a.3}} {{k.keys}}{{k.values}}
+    <p>{{k.items}}</p>
+    <p>{% if True %}True~ {% endif %}</p>
+
+    {% for p in a %}
+    <p>{{p.username}} {{forloop}}</p>
+    {% empty %}没有找到 {% endfor %} {% for p in a %}
+    <p>{{p}} {{forloop.counter}}</p>
+    {% empty %}没有找到 {% endfor %}
+  </body>
+</html>
