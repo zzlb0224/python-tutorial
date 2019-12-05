@@ -32,5 +32,17 @@ def delete(request, id=1):
 def detail(request, id):
     book = Book.objects.get(pk=id)
     print(book)
-
     return HttpResponse('ok')
+
+
+def articleadd(request):
+    article = Article()
+    article.title = 'aaa'
+    article.save()
+    return HttpResponse('ok')
+
+
+def articledetail(request, id):
+    a = Article.objects.get(pk=id)
+    print(a)
+    return render(request, 'index.html', context={'create_time': a.create_time})
