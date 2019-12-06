@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.timezone import timezone, now
+from django.urls import reverse
 # Create your models here.
 
 
@@ -42,3 +43,23 @@ class Author(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, null=False)
     create_time = models.DateTimeField(auto_now_add=True)
+
+
+class Car (models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(
+        max_length=20, help_text='Enter field documentation')
+
+    create_time = models.DateTimeField(auto_now_add=True)
+
+    # Metadata
+    class Meta:
+        ordering = ['create_time', 'id']
+        # db_table=''
+
+    # Methods
+    def get_absolute_url(self):
+        return reverse('cardetail', args=[self.id])
+
+    def __str__(self):
+        return r"car:{id:%s,name:%s,create_time:%s}" % (self.id, self.name, self.create_time)

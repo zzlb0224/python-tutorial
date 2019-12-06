@@ -46,3 +46,15 @@ def articledetail(request, id):
     a = Article.objects.get(pk=id)
     print(a)
     return render(request, 'index.html', context={'create_time': a.create_time})
+
+
+def authorlist(request):
+    authors = Author.objects.all()
+    return HttpResponse('ok')
+
+
+def cardetail(request, id):
+    a = Car.objects.get(pk=id)
+    print(a)
+
+    return HttpResponse('ok')
