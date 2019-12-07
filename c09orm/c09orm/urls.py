@@ -14,11 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+# from .settings import STATIC_ROOT
+# from filebrowser.sites import site
 
 
 urlpatterns = [
+    # path('froala_editor/', include('froala_editor.urls')),
+    # re_path(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
+    # path('admin/filebrowser/', site.urls),
+    # path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
+    # path('tinymce/', include('tinymce.urls')),
     path('book/', include('book.urls', 'book')),
     path('fk/', include('fk.urls', 'fk'))
 ]
