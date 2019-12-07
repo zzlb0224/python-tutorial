@@ -12,5 +12,9 @@ urlpatterns = [
     path('categoryaddarticle/', views.categoryaddarticle),
     path('1to1add/', views.one_to_one_add_view),
     path('1to1/', views.one_to_one_view),
-    path('m2m/add/', views.many_to_many_view)
+    path('m2m/add/', views.many_to_many_view),
+    path('m2m/tagaddarticle/', views.tagaddarticle),
+    path('m2m/m2marticle/<id>/', views.m2marticle),
+    path('m2m/m2mtag/<id>/', views.m2mtag),
+    path('q'.views.qu),
 ]

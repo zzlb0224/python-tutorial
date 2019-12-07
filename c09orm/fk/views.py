@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.db import connection
 
 
@@ -74,5 +74,26 @@ def many_to_many_view(request):
     article = Article.objects.first()
     tag = Tag(name='热门')
     tag.save()
-    article.tags_set.add(tag, bulk=False)
+    article.tags.add(tag)
     return HttpResponse('success')
+
+
+def tagaddarticle(request):
+    tag = Tag.objects.get(pk=3)
+    article = Article(title='红楼梦')
+    article.save()
+    tag.articles.add(article)
+    return HttpResponse('success')
+
+
+def m2marticle(request, id):
+    article = Article.objects.get(pk=id)
+    return HttpResponse([article, article.tags.all()])
+
+
+def m2mtag(request, id):
+    tag = Tag.objects.get(pk=id)
+    return HttpResponse([tag, tag.articles.all()])
+
+
+def qu(request):

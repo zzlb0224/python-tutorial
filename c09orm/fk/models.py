@@ -25,7 +25,8 @@ class Article(models.Model):
         "Category", on_delete=models.SET_NULL, null=True, blank=True)
     author = models.ForeignKey(
         "auth.User", on_delete=models.SET_NULL, null=True, blank=True)
-    tags=models.ManyToManyField("Tag",related_name='articles')
+    tags = models.ManyToManyField("Tag", related_name='articles')
+
     def __str__(self):
         return r"Article:{id:%s,title:%s,category:%s}" % (self.id, self.title,  self.category.name if self.category else '无')
 
@@ -41,3 +42,6 @@ class UserExtend(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return r'Tag:{name:%s}' % self.name
