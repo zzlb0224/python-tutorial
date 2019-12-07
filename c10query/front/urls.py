@@ -4,5 +4,7 @@ app_name = 'front'
 
 
 urlpatterns = [
-    path('', views.index)
+    path('', views.index),
+    path('exact/<id>/', views.exact),
+    path('iexact/<id>/', views.iexact)
 ]
